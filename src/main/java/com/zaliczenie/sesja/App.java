@@ -42,12 +42,3 @@ public class App {
         }
 
 
-
-
-//    void example1() {
-//
-//        for (Produkt produkt : Produkt.values()) {
-//            System.out.println(produkt);
-//        }
-//        Produkt produkt = Produkt.BANAN;
-
