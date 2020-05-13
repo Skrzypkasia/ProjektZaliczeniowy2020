@@ -3,12 +3,51 @@
  */
 package com.zaliczenie.sesja;
 
+import com.sun.tools.javac.Main;
+
+import java.util.ArrayList;
+
+enum Produkt {
+    JABLKO, TRUSKAWKA, MALINA, GRUSZKA, BOROWKA, BANAN,
+    ZIEMNIAK, SALATA, MARCHEWKA, PAPRYKA, SELER, OGOREK
+
+}
+
 public class App {
-    public String getGreeting() {
-        return "Hello world.";
-    }
+
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+//        var array = new ArrayList<Double>();
+//        var a = 10.0;
+
+        App app = new App();
+        System.out.println("Banan to: "+app.rodzaj(Produkt.BANAN));
+        System.out.println("Jabłko to: " + app.rodzaj(Produkt.JABLKO));
+        System.out.println("Ziemniak to: " + app.rodzaj(Produkt.ZIEMNIAK));
+
     }
-}
+
+
+
+        String rodzaj(Produkt produkt){
+            String kategoria = "";
+            switch (produkt) {
+                case JABLKO, TRUSKAWKA, MALINA, GRUSZKA, BOROWKA, BANAN -> kategoria = "Owoc";
+                case ZIEMNIAK, SALATA, MARCHEWKA, PAPRYKA, SELER, OGOREK -> kategoria = "Warzywo";
+                default -> kategoria = "Inny produkt";
+            }
+            return kategoria;
+        }
+
+        }
+
+
+
+
+//    void example1() {
+//
+//        for (Produkt produkt : Produkt.values()) {
+//            System.out.println(produkt);
+//        }
+//        Produkt produkt = Produkt.BANAN;
+
