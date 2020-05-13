@@ -5,7 +5,9 @@ package com.zaliczenie.sesja;
 
 import com.sun.tools.javac.Main;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 
 enum Produkt {
     JABLKO, TRUSKAWKA, MALINA, GRUSZKA, BOROWKA, BANAN,
@@ -15,30 +17,58 @@ enum Produkt {
 
 public class App {
 
+    Deque<Klienci> klienciDeque = new ArrayDeque<>();
 
     public static void main(String[] args) {
 //        var array = new ArrayList<Double>();
 //        var a = 10.0;
 
         App app = new App();
-        System.out.println("Banan to: "+app.rodzaj(Produkt.BANAN));
+
+
+        System.out.println("Banan to: " + app.rodzaj(Produkt.BANAN));
         System.out.println("Jabłko to: " + app.rodzaj(Produkt.JABLKO));
         System.out.println("Ziemniak to: " + app.rodzaj(Produkt.ZIEMNIAK));
-
+        System.out.println("Papryka to:"+ app.rodzaj(Produkt.PAPRYKA));
+        app.example();
+        app.zrobZakupy();
     }
 
 
-
-        String rodzaj(Produkt produkt){
-            String kategoria = "";
-            switch (produkt) {
-                case JABLKO, TRUSKAWKA, MALINA, GRUSZKA, BOROWKA, BANAN -> kategoria = "Owoc";
-                case ZIEMNIAK, SALATA, MARCHEWKA, PAPRYKA, SELER, OGOREK -> kategoria = "Warzywo";
-                default -> kategoria = "Inny produkt";
-            }
-            return kategoria;
+    String rodzaj(Produkt produkt) {
+        String kategoria = "";
+        switch (produkt) {
+            case JABLKO, TRUSKAWKA, MALINA, GRUSZKA, BOROWKA, BANAN -> kategoria = "owoc.";
+            case ZIEMNIAK, SALATA, MARCHEWKA, PAPRYKA, SELER, OGOREK -> kategoria = "warzywo.";
+            default -> kategoria = "Inny produkt";
         }
+        return kategoria;
+    }
 
+    void example() {
+        System.out.println(Klienci.informacja);
+        for (Klienci klienci : Klienci.values())
+            System.out.println(klienci.info());
+
+
+//        Klienci klienci = Klienci.Jadwiga;
+//        System.out.println(klienci.getIloscPieniedzy());
+        klienciDeque.offer(Klienci.Jadwiga);
+        klienciDeque.offer(Klienci.Krystyna);
+        klienciDeque.offer(Klienci.Zygmunt);
+
+
+    }
+
+    void zrobZakupy() {
+        while (!klienciDeque.isEmpty()) {
+            //System.out.println(studentsDeque);
+            Klienci klienci = klienciDeque.poll();
+            System.out.println(""); klienci.zrobZakupy();
         }
+    }
+}
+
+
 
 

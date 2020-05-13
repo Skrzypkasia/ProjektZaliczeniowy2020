@@ -1,16 +1,17 @@
+package com.zaliczenie.sesja;
 
 public enum Klienci {
     Krystyna(15, "Jabłko"),
-    Jadwiga(30, "Bana"),
-    Zygmunt(4.50, "lolo"),
-    Marcin(15.60, "askdj");
+    Jadwiga(30, "Banana"),
+    Zygmunt(4.50, "Marchewkę"),
+    Marcin(15.60, "Ogórka");
 
     final private double iloscPieniedzy;
     final public String zakupy;
-    final public static String info;
+    final public static String informacja;
 
     static {
-        info = "Klient sklepu";
+        informacja = "Klienci sklepu";
     }
 
 
@@ -23,11 +24,11 @@ public enum Klienci {
         return iloscPieniedzy;
     }
     public String info() {
-        return super.toString()+": "+iloscPieniedzy;
+        return super.toString()+" ma przy sobie "+iloscPieniedzy+"zł.";
     }
 
     public void zrobZakupy(){
-        System.out.println("Kupuje:"+ zakupy);
+        System.out.println(toString()+ " chce kupić " + zakupy+".");
     }
 }
 
